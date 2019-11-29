@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 
-import EIComponent, { age, name, sum } from './EIComponent';
+import PropsComponent, { } from './PropsComponent';
 import { Text, View } from 'react-native';
 
 export default class setup extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = ({
-            remove: true
-        })
-    }
-
     render() {
-        return (
+        var params = { name: "汤唯", age: 20, sex: "女" }
+        var {name,sex } = params
+        return (            
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text>{name}</Text>
-                <Text>{age}岁</Text>
-                <Text>2017+{age} = {sum(2017, age)}</Text>
-            </View>
+                <PropsComponent
+                    // //延展操作符
+                    // {...params}
+                    // 解构操作符
+                    name={name}
+                    sex={sex}
+                />
+            </View >
 
         );
     }
