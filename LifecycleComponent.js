@@ -15,8 +15,30 @@ export default class LifecycleComponent extends Component {
         }
     }
 
+    
+
     componentWillMount() {
         console.log("----componentWillMount----")
+    }
+
+    render() {
+        console.log("----render----")
+        return <View>
+            <Text
+                style={{
+                    fontSize: 20, backgroundColor: 'yellow'
+                }}
+                onPress={() => {
+                    this.setState({
+                        count: this.state.count + 1,
+                    })
+                }}
+            >Hello, {this.props.name}有本事你打我呀
+            </Text>
+            <Text style={{ fontSize: 50 }}>
+                被暴击{this.state.count}次
+            </Text>
+        </View>
     }
 
     componentDidMount() {
@@ -44,23 +66,5 @@ export default class LifecycleComponent extends Component {
         console.log("----componentWillUnmount----")
     }
 
-    render() {
-        console.log("----render----")
-        return <View>
-            <Text
-                style={{
-                    fontSize: 20, backgroundColor: 'yellow'
-                }}
-                onPress={() => {
-                    this.setState({
-                        count: this.state.count + 1,
-                    })
-                }}
-            >Hello, {this.props.name}有本事你打我呀
-            </Text>
-            <Text style={{ fontSize: 50 }}>
-                被暴击{this.state.count}次
-            </Text>
-        </View>
-    }
+    
 }
