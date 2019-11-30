@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import RefComponent, { } from './RefComponent';
+import Student from './Studunt'
+import TangWeiStudent from './TangWeiStudent'
 import { Text, View } from 'react-native';
 
 export default class setup extends Component {
@@ -9,30 +11,25 @@ export default class setup extends Component {
         this.state = {
             size: 0
         }
+
+        this.stu = new Student("汤唯", "女", "18")
+
+        this.tang = new TangWeiStudent()
+
     }
     render() {
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 <Text
                     style={{ fontSize: 20 }}
-                    onPress={() => {
-                        this.setState({
-                            // 方式一
-                            // size: this.refs.refTest.getSize()
-                            // 方式二
-                            // size: this.refs["refTest"].getSize()
-                            size: this.refTest.getSize()
-                        })
-                    }}
-                >获取气球大小{this.state.size}
+                >{this.stu.getDescription()}
                 </Text>
-                <RefComponent
-                    // 方式一
-                    // ref="refTest"
-                    ref={
-                        refTest => this.refTest = refTest
-                    }
-                />
+
+                <Text
+                    style={{ fontSize: 20 }}
+                >{this.tang.getDescription()}
+                </Text>
+
             </View >
 
         );
