@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 
-export default class StateComponent extends Component {
+export default class RefComponent extends Component {
 
     state = {
         size: 120,
     }
 
+
+    getSize() {
+        return this.state.size
+    }
 
     // // 初始化 state 方式一
     // constructor(props) {
